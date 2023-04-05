@@ -1,0 +1,14 @@
+sudo apt-get update
+sudo apt install unzip
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -p ~/miniconda
+echo "PATH=$PATH:$HOME/miniconda/bin" >> ~/.bashrc
+source ~/.bashrc
+wget https://www.dropbox.com/s/qd0agtz2nim3spt/deploy-demo.zip
+unzip deploy-demo.zip
+cd deploy-demo
+pip install streamlit
+pip install opencv-python
+pip install tensorflow-cpu
+sudo apt-get install ffmpeg libsm6 libxext6 -y
+streamlit run app.py
